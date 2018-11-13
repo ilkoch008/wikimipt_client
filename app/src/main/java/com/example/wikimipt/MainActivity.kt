@@ -15,20 +15,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val intent = Intent(this, Second_Activity::class.java)
+        back_press = false
 
-        object : CountDownTimer(2000, 10) {
-            override fun onFinish() {
-                startActivity(intent)
-                finish()
-            }
-            override fun onTick(millisUntilFinished: Long) {
-                if(back_press){
-                    cancel()
-                    back_press = false
-                    finish()
-                }
-            }
-        }.start()
+        Handler().postDelayed({
+            if(!back_press) startActivity(intent)
+
+            finish()
+        }, 2000)
+
+//        object : CountDownTimer(2000, 10) {
+//            override fun onFinish() {
+//                startActivity(intent)
+//                finish()
+//            }
+//            override fun onTick(millisUntilFinished: Long) {
+//                if(back_press){
+//                    cancel()
+////                    back_press = false
+//                    finish()
+//                }
+//            }
+//        }.start()
     }
 
     override fun onBackPressed() {

@@ -1,19 +1,23 @@
 package com.example.wikimipt
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_second_.*
 import kotlinx.android.synthetic.main.app_bar_second_.*
 
 class Second_Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var router : Router
+    var first_tap = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +42,16 @@ class Second_Activity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
         } else if (!router.navigateBack()) {
-            super.onBackPressed()
+//        } else{
+            if(first_tap){
+                super.onBackPressed()
+            } else {
+                first_tap = true
+                Toast.makeText(this, "Нажмите ещё раз, чтобы выйти", Toast.LENGTH_SHORT).show()
+                Handler().postDelayed({
+                    first_tap = false
+                }, 2000)
+            }
         }
     }
 
@@ -65,7 +78,7 @@ class Second_Activity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 // Handle the camera action
             }
             R.id.nav_gallery -> {
-                router.navigateTo (true, ::test_frag)
+                router.navigateTo (false, ::Faculties)
             }
             R.id.nav_slideshow -> {
 

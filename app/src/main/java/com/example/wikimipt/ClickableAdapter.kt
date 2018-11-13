@@ -1,18 +1,18 @@
-package ru.mail.technotrack.recyclerview.adapters
+package com.example.wikimipt
 
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import ru.mail.technotrack.recyclerview.R
+
 
 class ClickableAdapter : RecyclerView.Adapter<ClickableViewHolder>() {
 
     val arrayOfItems = arrayOf(
-        "lorem",
-        "ipsum",
+        "Факультет радиотехники и кибернетики",
+        "Факультет общей и прикладной физики",
         "dolor",
         "sit",
         "amet",
@@ -42,7 +42,7 @@ class ClickableAdapter : RecyclerView.Adapter<ClickableViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClickableViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ClickableViewHolder(
-            inflater.inflate(R.layout.clickable_item, parent, false),
+            inflater.inflate(R.layout.faculties_buttons, parent, false),
             ::onItemClick)
     }
 
