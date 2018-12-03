@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Handler
 
 var back_press : Boolean = false
+var first_start : Boolean = false
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,9 +17,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val intent = Intent(this, Second_Activity::class.java)
         back_press = false
+        first_start = false
 
         Handler().postDelayed({
-            if(!back_press) startActivity(intent)
+            if(!back_press && !first_start) {
+                startActivity(intent)
+                first_start = true
+            }
 
             finish()
         }, 2000)
