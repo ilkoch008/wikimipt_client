@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 
 class Faculties : Fragment() {
 
@@ -41,6 +40,6 @@ class Faculties : Fragment() {
             }
         }
         recycler.layoutManager = layoutManager
-        recycler.adapter = ClickableAdapter()
+        recycler.adapter = FacultiesClickableAdapter()
     }
 }

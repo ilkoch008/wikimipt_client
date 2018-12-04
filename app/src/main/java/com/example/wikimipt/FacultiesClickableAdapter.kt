@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 
-class ClickableAdapter : RecyclerView.Adapter<ClickableViewHolder>() {
+class FacultiesClickableAdapter : RecyclerView.Adapter<ClickableViewHolder>() {
 
     class im_Item(var name: String = "FFFFF", var v_id: Int = R.drawable.f1)
 
