@@ -99,5 +99,7 @@ class Second_Activity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 }
 
