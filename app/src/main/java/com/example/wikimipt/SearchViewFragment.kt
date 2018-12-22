@@ -19,6 +19,8 @@ class SearchViewFragment : Fragment() {
 
     val apologize = "Подождите пожалуйста"
 
+    val fail = "Не удалось загрузить результат"
+
     val mAdapter = SearchClickableAdapter()
 
     var searching = message_to_next_fragment
@@ -52,7 +54,7 @@ class SearchViewFragment : Fragment() {
             listt = searchAndDownload(searching)
         }
         createClickableList(recycler, listt)
-        for(i in 1..10) {
+        for(i in 1..30) {
             Handler().postDelayed({
                 mAdapter.notifyDataSetChanged()
             }, (i*250).toLong())

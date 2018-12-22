@@ -7,8 +7,9 @@ class HtmlTeacherParse {
 
     private val client = OkHttpClient()
 
-    fun DownloadHtml(url : String) {
-        var html : String
+    var html = ""
+
+    fun DownloadHtml(url : String) : String {
         val request = Request.Builder()
                 .url(url)
                 .build()
@@ -19,5 +20,7 @@ class HtmlTeacherParse {
                 html = response.body()?.string()!!
             }
         })
+
+        return html
     }
 }
