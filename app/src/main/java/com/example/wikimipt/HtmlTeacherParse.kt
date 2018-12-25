@@ -3,13 +3,18 @@ package com.example.wikimipt
 import okhttp3.*
 import java.io.IOException
 
-class HtmlTeacherParse {
+class HtmlTeacherParse__ {
 
     private val client = OkHttpClient()
 
     var html = ""
+    var url = ""
 
-    fun DownloadHtml(url : String) : String {
+    fun urlInit(str : String) {
+        url = str
+    }
+
+    fun DownloadHtml() : String {
         val request = Request.Builder()
                 .url(url)
                 .build()

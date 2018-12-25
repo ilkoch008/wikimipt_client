@@ -7,5 +7,9 @@
         android:id="@+id/teacher_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <WebView
+        android:id="@+id/PageWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>
